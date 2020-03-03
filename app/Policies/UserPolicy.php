@@ -23,4 +23,9 @@ class UserPolicy
 	{
 		return $currentUser->id == $user->id;
     }
+
+	public function destory(User $current, User $user)
+	{
+		return $current->is_admin && $current->id !== $user->id;
+    }
 }
